@@ -1,0 +1,390 @@
+/*General*/
+
+body
+{
+	font-family:Verdana, Geneva, sans-serif;
+	background-color: #52A255;
+}
+
+.hidden
+{
+	display:none;
+}
+
+/*Drum kit*/
+
+div#kitBox
+{
+	position: absolute;
+	top:5%;
+	left:18%;
+	width:1052px;
+	float:right;	
+    border: solid;
+    -moz-border-radius:10px;
+    padding: 40px 40px 40px 40px;
+	background-image: url(images/black_wood.jpg); 
+	border-width: 5px;
+	border-top-color:#3F3F3F;
+	border-left-color:#3F3F3F;
+	border-bottom-color:#2A2A2A;
+	border-right-color:#2A2A2A;
+}
+
+div.padHolder
+{
+	float:left;
+}
+
+div.pad
+{
+	width:140px;
+	height:100px;
+    text-align: center;
+	vertical-align:middle;
+    border: solid;
+    -moz-border-radius:10px;
+    padding: 50px 10px 10px 10px;
+    margin: 0 20px 0 20px;
+    background-color:#2A2A2A;
+	color:#FFFFFF;
+	border-color:#939393;
+	border-width: 5px;
+	font-family:courier;
+	font-size:24px;
+	font-weight:bold;
+}
+
+div.sampleSelector
+{
+	width:150px;
+	height:25px;
+    text-align: center;
+	vertical-align:middle;
+    border: solid;
+    -moz-border-radius:10px;
+    padding: 10px 5px 5px 5px;
+    margin: 0 20px 10px 20px;
+    background-color:#EAEAEA;
+	color:#000000;
+	border-color:#939393;
+	border-width: 5px;
+	font-size:15px;
+	overflow:hidden;
+}
+
+div.sampleSelector:hover
+{
+	
+	border-top-color: #FF8900;
+	border-left-color: #FF8900;
+	border-bottom-color: #FF6B00;
+	border-right-color: #FF6B00;
+}
+
+/*Matrix*/
+
+div#matrixArea
+{
+	position: absolute;
+	top:40%;
+	left:18%;
+	width:1052px;
+    -moz-border-radius:10px;
+    padding: 40px 40px 40px 40px;
+	background-image: url(images/black_wood.jpg);
+	border: solid;
+	border-width: 5px;
+	border-top-color:#3F3F3F;
+	border-left-color:#3F3F3F;
+	border-bottom-color:#2A2A2A;
+	border-right-color:#2A2A2A;
+}
+
+table#matrix td
+{
+width: 50px;
+height: 20px;
+border: solid;
+border-width: 4px;
+background-color:#DDDDDD;
+border-top-color: #EAEAEA;
+border-left-color: #EAEAEA;
+border-bottom-color: #BDBDBD;
+border-right-color: #BDBDBD;
+}
+
+
+
+table#matrix td.currentBar
+{
+background-color:#CCCC99;
+border-top-color:#EACC99;
+border-left-color:#EACC99;
+border-bottom-color:#CCCC71;
+border-right-color:#CCCC71;
+}
+
+table#matrix td.unSelectedBar
+{
+background-color:#DDDDDD;
+border-top-color: #EAEAEA;
+border-left-color: #EAEAEA;
+border-bottom-color: #BDBDBD;
+border-right-color: #BDBDBD;
+}
+
+/*Buttons*/
+
+div#buttonsPanel
+{
+	display:inline;
+	float: left;
+	width: 100%;
+	
+}
+
+div#bpmDisplay, div#velocityDisplay
+{
+	float:left;
+	color: #FFFFFF;
+	background-color: #2A2A2A;
+	border: solid;
+	-moz-border-radius:10px;
+	border-color:#939393;
+	border-width: 2px;
+	margin: 25px 10px 10px 10px;
+	padding: 2px 5px 5px 5px;
+	height: 16px;
+	text-align: center;
+}
+
+div#bpmDisplay
+{
+	width: 80px;
+}
+div#velocityDisplay
+{
+	width: 125px;
+}
+
+div#bpmSlider, div#velocitySlider
+{
+	width: 25%;
+	float: left;
+	margin: 30px 10px 10px 20px;
+}
+
+input.button
+{
+	width:42px;
+	height: 42px;
+	margin: 20px 10px 10px 0;
+	background-color:#DDDDDD;
+	background-image: url(images/ui-icons_222222_256x240.png); 
+	background-repeat:no-repeat;
+	background-size: 512px 480px;
+	image-rendering:-moz-crisp-edges;
+	border: solid;
+	-moz-border-radius:5px;
+	border-width: 4px;
+	background-color:#DDDDDD;
+	border-top-color: #EAEAEA;
+	border-left-color: #EAEAEA;
+	border-bottom-color: #BDBDBD;
+	border-right-color: #BDBDBD;
+	float: left;
+}
+
+input#startButton:hover, input#stopButton:hover
+{
+background-image: url(images/ui-icons_cd0a0a_256x240.png);
+}
+
+input#startButton
+{
+	background-position: 0 -320px;
+}
+
+input#startButton.startOn
+{
+	background-color:#FF5252;
+	border-top-color: #FF6F6F;
+	border-left-color: #FF6F6F;
+	border-bottom-color: #FF3F3F;
+	border-right-color: #FF3F3F;
+}
+
+input#startButton.startOff
+{
+	background-color:#DDDDDD;
+	border-top-color: #EAEAEA;
+	border-left-color: #EAEAEA;
+	border-bottom-color: #BDBDBD;
+	border-right-color: #BDBDBD;
+}
+
+input#stopButton
+{
+	background-position: -192px -320px;
+}
+
+input#loopButton
+{
+	background-position: -256px -128px;
+}
+
+input#loopButton.loopOn
+{
+	background-color: #66CC66;
+	border-top-color: #66FC66;
+	border-left-color: #66FC66;
+	border-right-color: #669F66;
+	border-bottom-color: #669F66;
+}
+
+input#loopButton.loopOff
+{
+	background-color:#DDDDDD;
+	border-top-color: #EAEAEA;
+	border-left-color: #EAEAEA;
+	border-bottom-color: #BDBDBD;
+	border-right-color: #BDBDBD;
+}
+
+/*Velocity related styles*/
+
+div#kitBox.velocity1 div.pad:hover, table#matrix td.selectedBar1, table#matrix.velocity1 td:hover 
+{
+	border-top-color: #FFFF55;
+	border-left-color: #FFFF55;
+	border-bottom-color: #FFFF00;
+	border-right-color: #FFFF00;
+}
+
+div#kitBox.velocity2 div.pad:hover, table#matrix td.selectedBar2, table#matrix.velocity2 td:hover
+{
+	border-top-color: #FFE000;
+	border-left-color: #FFE000;
+	border-right-color: #FFC000;
+	border-bottom-color: #FFC000;
+}
+
+div#kitBox.velocity3 div.pad:hover, table#matrix td.selectedBar3, table#matrix.velocity3 td:hover
+{
+	border-top-color: #FFC400;
+	border-left-color: #FFC400;
+	border-bottom-color: #FFA400;
+	border-right-color: #FFA400;
+}
+
+div#kitBox.velocity4 div.pad:hover, table#matrix td.selectedBar4, table#matrix.velocity4 td:hover
+{
+	border-top-color: #FF8400;
+	border-left-color: #FF8400;
+	border-bottom-color: #FFA400;
+	border-right-color: #FFA400;
+}
+
+div#kitBox.velocity5 div.pad:hover, table#matrix td.selectedBar5, table#matrix.velocity5 td:hover
+{
+	border-top-color: #FF8D00;
+	border-left-color: #FF8D00;
+	border-bottom-color: #FF6D00;
+	border-right-color: #FF6D00;
+}
+
+div#kitBox.velocity6 div.pad:hover, table#matrix td.selectedBar6, table#matrix.velocity6 td:hover
+{
+	border-top-color: #FF7700;
+	border-left-color: #FF7700;
+	border-bottom-color: #FF5700;
+	border-right-color: #FF5700;
+}
+
+div#kitBox.velocity7 div.pad:hover, table#matrix td.selectedBar7, table#matrix.velocity7 td:hover
+{
+	border-top-color: #FF5F00;
+	border-left-color: #FF5F00;
+	border-bottom-color: #FF3F00;
+	border-right-color: #FF3F00;
+}
+
+div#kitBox.velocity8 div.pad:hover, table#matrix td.selectedBar8, table#matrix.velocity8 td:hover
+{
+	border-top-color: #FF4300;
+	border-left-color: #FF4300;
+	border-bottom-color: #FF2300;
+	border-right-color: #FF2300;
+}
+
+div#kitBox.velocity9 div.pad:hover, table#matrix td.selectedBar9, table#matrix.velocity9 td:hover
+{
+	border-top-color: #FF2B00;
+	border-left-color: #FF2B00;
+	border-bottom-color: #FF0B00;
+	border-right-color: #FF0B00;
+}
+
+div#kitBox.velocity10 div.pad:hover, table#matrix td.selectedBar10, table#matrix.velocity10 td:hover
+{
+	border-top-color: #FF0900;
+	border-left-color: #FF0900;
+	border-bottom-color: #FF0100;
+	border-right-color: #FF0100;
+}
+
+table#matrix td.hover:hover, table#matrix td.selectedBar
+{
+	background-color:#FF5252;
+}
+
+table#matrix td.selectedBar1, table#matrix.velocity1 td:hover
+{
+	background-color:#FFFF00;
+}
+
+table#matrix td.selectedBar2, table#matrix.velocity2 td:hover
+{
+	background-color:#FFD000;
+}
+
+table#matrix td.selectedBar3, table#matrix.velocity3 td:hover
+{
+	background-color:#FFB400;
+}
+
+table#matrix td.selectedBar4, table#matrix.velocity4 td:hover
+{
+	background-color:#FF9400;
+}
+
+table#matrix td.selectedBar5, table#matrix.velocity5 td:hover
+{
+	background-color:#FF7D00;
+}
+
+table#matrix td.selectedBar6, table#matrix.velocity6 td:hover
+{
+	background-color:#FF6700;
+}
+
+table#matrix td.selectedBar7, table#matrix.velocity7 td:hover
+{
+	background-color:#FF4F00;
+}
+
+table#matrix td.selectedBar8, table#matrix.velocity8 td:hover
+{
+	background-color:#FF3300;
+}
+
+table#matrix td.selectedBar9, table#matrix.velocity9 td:hover
+{
+	background-color:#FF1B00;
+}
+
+table#matrix td.selectedBar10, table#matrix.velocity10 td:hover
+{
+	background-color:#FF0400;
+}

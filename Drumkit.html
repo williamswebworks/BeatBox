@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simons Drumkit</title>
+	<link href="css/drumkit.css" rel="stylesheet" type="text/css">
+	<link href="css/jquery-ui-1.8.11.custom.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+	<script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.8.11.custom.min.js"></script>
+	<script type="text/javascript" src="js/drumkit.js"></script>
+	
+	<audio id="wav0" src="audio/KICK_01.wav" preload="auto" autoplay="true"></audio>
+	<audio id="wav1" src="audio/SNARE_01.wav" preload="auto"></audio>
+	<audio id="wav2" src="audio/CL_HAT_01.wav" preload="auto"></audio>
+	<audio id="wav3" src="audio/TOM_01.wav" preload="auto"></audio>
+	<audio id="wav4" src="audio/SYNTH_01.wav" preload="auto"></audio>
+	
+	<input type="file" id="padSelect0" size="10" multiple="false" onchange="soundSelected(this.files, 0)" class="hidden"/>
+	<input type="file" id="padSelect1" size="10" multiple="false" onchange="soundSelected(this.files, 1)" class="hidden"/>
+	<input type="file" id="padSelect2" size="10" multiple="false" onchange="soundSelected(this.files, 2)" class="hidden"/>
+	<input type="file" id="padSelect3" size="10" multiple="false" onchange="soundSelected(this.files, 3)" class="hidden"/>
+	<input type="file" id="padSelect4" size="10" multiple="false" onchange="soundSelected(this.files, 4)" class="hidden"/>
+	
+	<div id="kitBox" class="velocity5">
+		<div class="padHolder">
+			<div onclick="$('#padSelect0').click();" class="sampleSelector" id="sampleSelector0">KICK_01.wav</div>
+			<div id="pad0" class="pad" onclick="javascript:pad_Hit(0,brushVelocity);" ondragenter="return false" ondragover="return false" ondrop="dropIt(event, 0)">
+			</div>
+		</div>
+		<div class="padHolder">
+			<div onclick="$('#padSelect1').click();" class="sampleSelector" id="sampleSelector1">SNARE_01.wav</div>
+			<div id="pad1" class="pad" onclick="javascript:pad_Hit(1,brushVelocity);" ondragenter="return false" ondragover="return false" ondrop="dropIt(event, 1)">
+			</div>
+		</div>
+		<div class="padHolder">
+			<div onclick="$('#padSelect2').click();" class="sampleSelector" id="sampleSelector2">CL_HAT_01.wav</div>
+			<div id="pad2" class="pad" onclick="javascript:pad_Hit(2,brushVelocity);" ondragenter="return false" ondragover="return false" ondrop="dropIt(event, 2)">
+			</div>
+		</div>
+		<div class="padHolder">
+			<div onclick="$('#padSelect3').click();" class="sampleSelector" id="sampleSelector3">TOM_01.wav</div>
+			<div id="pad3" class="pad" onclick="javascript:pad_Hit(3,brushVelocity);" ondragenter="return false" ondragover="return false" ondrop="dropIt(event, 3)">
+			</div>
+		</div>
+		<div class="padHolder">
+			<div onclick="$('#padSelect4').click();" class="sampleSelector" id="sampleSelector4">SYNTH_01.wav</div>
+			<div id="pad4" class="pad" onclick="javascript:pad_Hit(4,brushVelocity);" ondragenter="return false" ondragover="return false" ondrop="dropIt(event, 4)">
+			</div>
+		</div>
+	</div>	
+	<div id="matrixArea">
+		<table id="matrix" class="velocity5">
+			<script type="text/javascript">
+			for (r=0;r<=4;r++)
+			{
+				document.write("<tr>");
+				for (c=0;c<=15;c++)
+				{
+					var cellId = r +'_' + c;
+					document.write('<td id="' + cellId +'" onclick="javascript:select_Cell(\'' + cellId + '\');">');
+					document.write("</td>");
+				}
+				document.write("</tr>");
+			}
+			</script>
+		</table>
+		<div id="buttonsPanel">
+			<input type="button" text="Play" id="startButton" class="button" onclick="javascript:start_Playing();"></input>
+			<input type="button" text="Stop" id="stopButton" class="button" onclick="javascript:stop_Playing();" enabled="false"></input>
+			<input type="button" text="Loop" id="loopButton" class="button" onclick="javascript:loop_Toggle();"></input>	
+			<div id="bpmDisplay">BPM: 120</div>
+			<div id="bpmSlider"></div>
+			<script type="text/javascript">
+				$(function() {
+					$('#bpmSlider').slider({ min: 60, max: 200, value: 120, stop: function(event, ui){updateStep();}, slide: function(event, ui){updateBpmDisplay();}});
+				});
+			</script>
+			<div id="velocityDisplay">Velocity: 5</div>
+			<div id="velocitySlider"></div>
+			<script type="text/javascript">
+				$(function() {
+					$('#velocitySlider').slider({ min: 1, max: 10, value: 5, stop: function(event, ui){updateBrushVelocity();}, slide: function(event, ui){updateVelocityDisplay();}});
+				});
+			</script>
+		</div>
+	</div>
+  </body>
+</html>
